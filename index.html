@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/Users/yumas/Downloads/index_3.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>街の美味しいを、もっと近くに。｜限定エリア特化型 飲食店専門Web制作サポート</title>
+<style>
+  :root{
+    --navy: #1a2a3a;
+    --navy-light: #24384c;
+    --navy-pale: #eef1f4;
+    --red: #e74c3c;
+    --red-dark: #c0392b;
+    --cream: #fdfaf5;
+    --hero-bg: #faf6ef;
+    --hero-accent: #d97a42;
+    --hero-accent-dark: #c2652f;
+    --line: #dfe4ea;
+    --text-main: #22303e;
+    --text-sub: #5a6a78;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: var(--text-main);
+    background: var(--cream);
+    line-height: 1.85;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { display:block; max-width: 100%; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container{
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section { padding: 88px 0; }
+
+  h2.section-title{
+    font-size: clamp(26px, 4.2vw, 36px);
+    font-weight: 800;
+    text-align: center;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+  }
+
+  .section-lead{
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 16px;
+    margin-bottom: 56px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    background: rgba(231,76,60,0.09);
+    padding: 6px 18px;
+    border-radius: 999px;
+    letter-spacing: 0.12em;
+    margin-bottom: 18px;
+  }
+
+  /* ===== Header / Nav ===== */
+  header.top-nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--hero-bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .top-nav .container{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .brand{
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.03em;
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
+  .brand .dot{
+    width: 9px; height:9px; border-radius:50%;
+    background: var(--hero-accent);
+    display:inline-block;
+  }
+  .nav-cta{
+    background: var(--hero-accent);
+    color:#fff;
+    font-weight:700;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(217,122,66,0.35);
+    white-space: nowrap;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 15%, rgba(217,122,66,0.14), transparent 45%),
+      radial-gradient(circle at 10% 85%, rgba(26,42,58,0.05), transparent 40%),
+      linear-gradient(160deg, var(--hero-bg) 0%, #f3ece0 100%);
+    color: var(--navy);
+    padding: 100px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right: -60px;
+    bottom: -80px;
+    width: 320px;
+    height: 320px;
+    border: 2px solid rgba(217,122,66,0.3);
+    border-radius: 50%;
+  }
+  .hero-illustration{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-illustration svg{
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+  }
+  .hero-inner{
+    text-align:center;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-badge{
+    display:inline-block;
+    background: rgba(26,42,58,0.05);
+    border: 1px solid rgba(26,42,58,0.15);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 7px 18px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .hero h1{
+    font-size: clamp(30px, 6vw, 50px);
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 22px;
+    color: var(--navy);
+  }
+  .hero h1 .accent{ color: var(--hero-accent-dark); }
+  .hero p.sub{
+    font-size: clamp(16px, 2.6vw, 19px);
+    color: var(--text-sub);
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+  .hero-actions{
+    display:flex;
+    justify-content:center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display:inline-block;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 17px 34px;
+    border-radius: 999px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-primary{
+    background: var(--red);
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(231,76,60,0.4);
+  }
+  .btn-primary:hover{ box-shadow: 0 14px 30px rgba(231,76,60,0.5); }
+  .btn-ghost{
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+  .hero .btn-primary{
+    background: var(--hero-accent);
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(217,122,66,0.4);
+  }
+  .hero .btn-primary:hover{ box-shadow: 0 14px 30px rgba(217,122,66,0.5); }
+  .hero .btn-ghost{
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid rgba(26,42,58,0.3);
+  }
+  .hero-stats{
+    margin-top: 56px;
+    display:flex;
+    justify-content:center;
+    gap: 40px;
+    flex-wrap: wrap;
+    color: var(--navy);
+  }
+  .hero-stats .stat{ text-align:center; }
+  .hero-stats .stat .num{
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--hero-accent-dark);
+  }
+  .hero-stats .stat .label{
+    font-size: 13px;
+    color: var(--text-sub);
+    margin-top: 4px;
+  }
+
+  /* ===== Compare Section ===== */
+  .compare-wrap{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .compare-card{
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 34px 28px;
+    border: 1px solid var(--line);
+  }
+  .compare-card.bad{
+    background: #f6f2ee;
+  }
+  .compare-card.good{
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(26,42,58,0.25);
+  }
+  .compare-card.good::before{
+    content: "選ばれる理由";
+    position: absolute;
+    top: -14px;
+    left: 28px;
+    background: var(--red);
+    color:#fff;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+  }
+  .compare-card h3{
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed rgba(0,0,0,0.15);
+  }
+  .compare-card.good h3{ border-bottom-color: rgba(255,255,255,0.2); }
+  .compare-card.bad h3{ color: #8a7a70; }
+
+  .compare-item{ margin-bottom: 22px; }
+  .compare-item:last-child{ margin-bottom: 0; }
+  .compare-item .k{
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .compare-card.bad .k{ color: #a8443b; }
+  .compare-card.good .k{ color: #f2a49c; }
+  .compare-item .v{
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+  .compare-card.bad .v{ color: #6b6058; }
+  .compare-card.good .v{ color: #e7ecf1; }
+
+  /* ===== 3 Reasons ===== */
+  .reasons{
+    background: var(--navy-pale);
+  }
+  .reason-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .reason-card{
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 36px 26px;
+    text-align:center;
+    border: 1px solid var(--line);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .reason-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 30px rgba(26,42,58,0.1);
+  }
+  .reason-num{
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 auto 20px;
+  }
+  .reason-card h3{
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+  .reason-card p{
+    font-size: 14.5px;
+    color: var(--text-sub);
+  }
+
+  /* ===== Pricing ===== */
+  .pricing-box{
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 20px;
+    padding: 52px 40px;
+    text-align:center;
+    box-shadow: 0 24px 50px rgba(26,42,58,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-box::before{
+    content:"";
+    position:absolute;
+    top:-40px; left:-40px;
+    width:160px; height:160px;
+    background: rgba(231,76,60,0.25);
+    border-radius:50%;
+    filter: blur(10px);
+  }
+  .price-row{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap: 36px;
+    flex-wrap: wrap;
+    margin: 30px 0 20px;
+    position: relative;
+  }
+  .price-block .label{
+    font-size: 13px;
+    color: #b9c4cf;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .price-block .amount{
+    font-size: 40px;
+    font-weight: 900;
+  }
+  .price-block .amount .small{ font-size: 16px; font-weight:700; }
+  .price-block.main .amount{ color: var(--red); font-size: 52px; }
+  .price-divider{
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    align-self: center;
+  }
+  .price-note{
+    font-size: 13.5px;
+    color: #b9c4cf;
+    margin-top: 20px;
+    line-height: 1.9;
+  }
+  .calc-box{
+    margin-top: 34px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 26px 24px;
+    text-align: left;
+    position: relative;
+  }
+  .calc-box .calc-title{
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .calc-box p{
+    font-size: 15px;
+    color: #e7ecf1;
+    line-height: 1.9;
+  }
+  .calc-box strong{
+    color: #fff;
+    font-size: 16.5px;
+  }
+
+  /* ===== Terms Accordion ===== */
+  .terms-card{
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .terms-toggle{
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 16px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    padding: 24px 26px;
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--navy);
+    font-family: inherit;
+  }
+  .terms-toggle:hover{ background: #faf9f7; }
+  .terms-toggle .chevron{
+    flex: none;
+    font-size: 13px;
+    color: var(--hero-accent-dark);
+    transition: transform .25s ease;
+  }
+  .terms-toggle[aria-expanded="true"] .chevron{
+    transform: rotate(180deg);
+  }
+  .terms-panel{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+  }
+  .terms-panel-inner{
+    padding: 6px 26px 30px;
+    border-top: 1px solid var(--line);
+  }
+  .t-article{
+    padding-top: 24px;
+  }
+  .t-article h3{
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .t-article p.plain,
+  .t-article > p{
+    font-size: 14.5px;
+    color: var(--text-main);
+  }
+  .t-article ol{
+    list-style: none;
+    counter-reset: t-clause;
+  }
+  .t-article ol li{
+    counter-increment: t-clause;
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 10px;
+    font-size: 14.5px;
+    color: var(--text-main);
+  }
+  .t-article ol li:last-child{ margin-bottom: 0; }
+  .t-article ol li::before{
+    content: counter(t-clause);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align:center;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--hero-accent-dark);
+    background: rgba(217,122,66,0.12);
+    border-radius: 5px;
+  }
+  .t-article strong{ color: var(--hero-accent-dark); }
+  .t-updated{
+    margin-top: 26px;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-sub);
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background: #101c27;
+    color: #cfd8e1;
+    padding: 56px 0 30px;
+    text-align:center;
+  }
+  footer .foot-cta{
+    margin-bottom: 34px;
+  }
+  footer .foot-cta p{
+    font-size: 15px;
+    color: #b9c4cf;
+    margin-bottom: 18px;
+  }
+  footer .links{
+    display:flex;
+    justify-content:center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 13.5px;
+    margin-bottom: 24px;
+  }
+  footer .links a{
+    color: #b9c4cf;
+    border-bottom: 1px solid transparent;
+  }
+  footer .links a:hover{ border-bottom-color: #b9c4cf; }
+  footer .copyright{
+    font-size: 12.5px;
+    color: #7c8a97;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 860px){
+    .compare-wrap{ grid-template-columns: 1fr; }
+    .reason-grid{ grid-template-columns: 1fr; }
+    section{ padding: 64px 0; }
+    .price-row{ gap: 20px; }
+    .price-divider{ display:none; }
+    .nav-cta{ font-size: 13px; padding: 9px 16px; }
+    .pricing-box{ padding: 40px 22px; }
+  }
+
+  @media (max-width: 480px){
+    body{ font-size: 16px; }
+    .brand{ font-size: 15px; }
+    .btn{ width: 100%; text-align:center; }
+    .hero-actions{ flex-direction: column; }
+    .price-block.main .amount{ font-size: 42px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="container">
+      <div class="brand"><span class="dot"></span>Local Works</div>
+      <a href="file:///C:/Users/yumas/Downloads/index_3.html#contact" class="nav-cta">LINEで相談</a>
+    </div>
+  </header>
+
+  <!-- 1. ヘッダー / メインビジュアル -->
+  <section class="hero" id="top">
+    <div class="hero-illustration" aria-hidden="true">
+      <svg viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg">
+        <!-- soft background blobs -->
+        <circle cx="150" cy="120" r="180" fill="var(--hero-accent)" opacity="0.07"></circle>
+        <circle cx="1080" cy="520" r="220" fill="var(--navy)" opacity="0.05"></circle>
+
+        <!-- left: ramen bowl -->
+        <g transform="translate(70,360)" fill="none" stroke="var(--hero-accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+          <path d="M10 60 C10 130 70 175 140 175 C210 175 270 130 270 60 Z"></path>
+          <path d="M-5 60 H285"></path>
+          <path d="M40 60 C 55 20 105 20 120 60" opacity="0.7"></path>
+          <path d="M150 60 C 165 20 205 25 215 60" opacity="0.7"></path>
+          <path d="M60 20 C 55 5 65 -5 60 -20" opacity="0.6"></path>
+          <path d="M100 15 C 95 0 105 -10 100 -25" opacity="0.6"></path>
+          <path d="M140 20 C 135 5 145 -5 140 -20" opacity="0.6"></path>
+        </g>
+
+        <!-- left: chopsticks -->
+        <g transform="translate(230,330) rotate(18)" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" opacity="0.3">
+          <line x1="0" y1="0" x2="150" y2="10"></line>
+          <line x1="0" y1="14" x2="150" y2="24"></line>
+        </g>
+
+        <!-- right: teacup -->
+        <g transform="translate(970,120)" fill="none" stroke="var(--navy)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.28">
+          <path d="M0 40 C0 90 30 115 70 115 C110 115 140 90 140 40 Z"></path>
+          <path d="M-8 40 H148"></path>
+          <path d="M140 55 C 175 50 175 90 142 90"></path>
+        </g>
+
+        <!-- right: small plate with fish -->
+        <g transform="translate(940,420)" fill="none" stroke="var(--hero-accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+          <ellipse cx="110" cy="80" rx="150" ry="34"></ellipse>
+          <ellipse cx="110" cy="80" rx="95" ry="18" opacity="0.6"></ellipse>
+          <path d="M60 78 C 90 55 150 55 180 78 C 150 100 90 100 60 78 Z"></path>
+          <path d="M180 78 L205 62 L205 94 Z"></path>
+        </g>
+
+        <!-- scattered herb / steam dots -->
+        <g fill="var(--hero-accent)" opacity="0.4">
+          <circle cx="330" cy="120" r="5"></circle>
+          <circle cx="360" cy="150" r="4"></circle>
+          <circle cx="870" cy="260" r="5"></circle>
+          <circle cx="900" cy="230" r="4"></circle>
+        </g>
+      </svg>
+    </div>
+    <div class="container hero-inner">
+      <span class="hero-badge">限定エリア特化型・飲食店専門</span>
+      <h1>街の美味しいを、<br><span class="accent">もっと近くに。</span></h1>
+      <p class="sub">限定エリア特化型・飲食店専門のWeb制作サポート</p>
+      <div class="hero-actions">
+        <a href="file:///C:/Users/yumas/Downloads/index_3.html#contact" class="btn btn-primary">公式LINEで無料相談する</a>
+        <a href="file:///C:/Users/yumas/Downloads/index_3.html#pricing" class="btn btn-ghost">料金を見る</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">0円</div><div class="label">初期費用</div></div>
+        <div class="stat"><div class="num">即日〜翌日</div><div class="label">修正対応</div></div>
+        <div class="stat"><div class="num">1つ</div><div class="label">明朗な料金体系</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 大手制作会社との違い -->
+  <section id="compare">
+    <div class="container">
+      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">COMPARISON</span>
+      <h2 class="section-title">大手制作会社との違い</h2>
+      <p class="section-lead">「結局よくわからないまま契約して、高い料金だけ払い続けている」<br>そんなお悩みはありませんか？</p>
+
+      <div class="compare-wrap">
+        <div class="compare-card bad">
+          <h3>大手制作会社の場合</h3>
+          <div class="compare-item">
+            <div class="k">費用</div>
+            <div class="v">初期費用・制作費用で数十万円。さらに毎月の維持費や、ちょっとした修正ごとに追加費用が発生して高額になりがち。</div>
+          </div>
+          <div class="compare-item">
+            <div class="k">対応スピード</div>
+            <div class="v">顧客数が多すぎるため、新メニューの追加や営業時間の変更を頼んでも、反映されるまでに数ヶ月かかることも珍しくありません。</div>
+          </div>
+          <div class="compare-item">
+            <div class="k">スタンス</div>
+            <div class="v">お店を本気で応援したいというより、ノルマ達成のために機械的な押し売り営業になりがち。</div>
+          </div>
+          <div class="compare-item">
+            <div class="k">分かりやすさ</div>
+            <div class="v">料金プランが大量にあって複雑。しかも高いプランを選ばないと、まともに機能するサイトが作れない仕組みになっている。</div>
+          </div>
+        </div>
+
+        <div class="compare-card good">
+          <h3>当方（限定エリア特化サポート）の場合</h3>
+          <div class="compare-item">
+            <div class="k">費用</div>
+            <div class="v">初期費用・制作費用は「完全0円」。無駄な追加費用も一切なし。</div>
+          </div>
+          <div class="compare-item">
+            <div class="k">対応スピード</div>
+            <div class="v">対象を狭いエリアに絞っているため、LINE一本で即日〜翌日には修正が完了する圧倒的な軽快さ。</div>
+          </div>
+          <div class="compare-item">
+            <div class="k">スタンス</div>
+            <div class="v">地域の本当に美味しい個人店を本気で応援したいからこそ、オーナー様に寄り添った提案を徹底。</div>
+          </div>
+          <div class="compare-item">
+            <div class="k">分かりやすさ</div>
+            <div class="v">選択肢で迷わせない、明朗な「1つだけの料金体系」。最初から必要な機能がすべて揃っています。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 選ばれる3つの理由 -->
+  <section class="reasons" id="reasons">
+    <div class="container">
+      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">3 REASONS</span>
+      <h2 class="section-title">選ばれる3つの理由</h2>
+      <p class="section-lead">狭いエリアだからこそできる、丁寧で軽快なサポートがあります。</p>
+
+      <div class="reason-grid">
+        <div class="reason-card">
+          <div class="reason-num">1</div>
+          <h3>初期費用は<br>完全0円</h3>
+          <p>まとまった予算がない個人店のオーナー様でも、リスクなく最新のスマホ専用サイトを持てます。</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-num">2</div>
+          <h3>限定エリアならではの<br>圧倒的なフットワーク</h3>
+          <p>あえて狭いエリアに限定してサポートしているため、新メニューの追加や臨時休業の案内なども、何かあれば即座に対応・駆けつけることが可能です。</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-num">3</div>
+          <h3>Googleマップからの<br>新規客を逃さない</h3>
+          <p>Googleマップにお店の情報は載っているのに、ウェブサイトの欄が空欄（または食べログ等）になっていませんか？専用のスマホサイトを登録することで、他店への流出を防ぎ、確実な予約へ繋げます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 料金とサポート内容 -->
+  <section id="pricing">
+    <div class="container">
+      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">PRICE</span>
+      <h2 class="section-title">料金とサポート内容</h2>
+      <p class="section-lead">迷わせない、明朗な料金です。</p>
+
+      <div class="pricing-box">
+        <div class="price-row">
+          <div class="price-block">
+            <div class="label">初期費用</div>
+            <div class="amount">0<span class="small">円</span></div>
+          </div>
+          <div class="price-divider"></div>
+          <div class="price-block main">
+            <div class="label">月額（税込）</div>
+            <div class="amount">60,000<span class="small">円</span></div>
+          </div>
+        </div>
+        <div class="price-note">
+          オリジナルサイト制作、サーバー維持費、LINEでの修正依頼（月2回まで対応）を含む
+        </div>
+
+        <div class="calc-box">
+          <div class="calc-title">「月額6万円」を、1日あたりで考えると</div>
+          <p>
+            1ヶ月30日で計算すると、1日あたり<strong>約2,000円</strong>です。<br>
+            単純計算で、このホームページを通じて<strong>1日あたり、あと2人</strong>新しいお客様が増えるだけで、十分に元が取れる計算です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 利用規約（サイト内完結アコーディオン） -->
+  <section id="terms-section" style="background: var(--navy-pale);">
+    <div class="container" style="max-width: 840px;">
+      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">TERMS</span>
+      <h2 class="section-title">利用規約</h2>
+      <p class="section-lead">ご利用の前に、必ずご確認ください。</p>
+
+      <div class="terms-card">
+        <button type="button" id="terms-toggle" class="terms-toggle" aria-expanded="false" aria-controls="terms-panel">
+          <span>【最新版】Local Works ホームページ制作・運営保守サービス利用規約</span>
+          <span class="chevron" aria-hidden="true">▼</span>
+        </button>
+
+        <div id="terms-panel" class="terms-panel">
+          <div class="terms-panel-inner">
+
+            <div class="t-article">
+              <h3>第1条（目的）</h3>
+              <p>本規約は、Local Works（以下「当方」）が提供するホームページ制作および運営保守サービス（以下「本サービス」）の利用条件を定めるものです。契約者（以下「オーナー」）は、本規約に同意の上、本サービスを利用するものとします。</p>
+            </div>
+
+            <div class="t-article">
+              <h3>第2条（サービス内容および料金体系）</h3>
+              <ol>
+                <li>本サービスは、<strong>初期費用および制作費用0円</strong>、<strong>月額費用60,000円（税込）</strong>の単一の料金体系で提供されるサービスです。</li>
+                <li>月額費用には、ホームページの維持、サーバー管理、および月2回までの軽微な修正（テキスト変更、写真の差し替え等）が含まれます。大幅なデザインリニューアルやシステム機能の追加は別途お見積もりとなります。</li>
+              </ol>
+            </div>
+
+            <div class="t-article">
+              <h3>第3条（決済方法および基準日）</h3>
+              <ol>
+                <li>月額費用は、Stripe決済システムを通じたクレジットカード自動決済にてお支払いいただきます。</li>
+                <li>初回の決済が完了した日を基準日とし、翌月以降も毎月同日に自動的に決済が行われます。</li>
+              </ol>
+            </div>
+
+            <div class="t-article">
+              <h3>第4条（限定エリア特化対応および修正運営）</h3>
+              <ol>
+                <li>オーナーからの修正依頼は、原則として当方の指定する「公式LINEアカウント」にて受け付けます。</li>
+                <li>当方は限定エリアに特化して運営している特性を活かし、依頼受領後、原則として即日〜翌営業日以内（24時間以内を目安）に迅速に修正を反映いたします（月2回まで）。ただし、内容によっては時間を要する場合があります。</li>
+              </ol>
+            </div>
+
+            <div class="t-article">
+              <h3>第5条（解約・契約終了）</h3>
+              <ol>
+                <li>オーナーは、本サービスをいつでも解約することができます。</li>
+                <li>解約を希望する場合、次回引き落とし日の<strong>【14日前】</strong>までに公式LINEアカウントにて解約の旨を通知するものとします。</li>
+                <li>期間途中の解約であっても、日割り計算による返金は一切行いません。</li>
+                <li>解約が成立した場合、当方は対象ホームページの公開を即座に停止（削除）いたします。</li>
+              </ol>
+            </div>
+
+            <div class="t-article">
+              <h3>第6条（サービスの停止・免責）</h3>
+              <ol>
+                <li>クレジットカードの決済エラー、残高不足等により月額費用の引き落としが確認できない場合、当方はオーナーに事前通知の上、ホームページの公開を一時停止することができるものとします。</li>
+                <li>ホームページ公開停止に伴い、オーナーまたは第三者に損害が生じた場合であっても、当方は一切の責任を負わないものとします。</li>
+              </ol>
+            </div>
+
+            <p class="t-updated">制定日：2026年7月10日</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. フッター -->
+  <footer id="contact">
+    <div class="container">
+      <div class="foot-cta">
+        <p>まずは無料で、お気軽にご相談ください。</p>
+        <a href="file:///C:/Users/yumas/Downloads/index_3.html#" class="btn btn-primary">公式LINEで相談する</a>
+      </div>
+      <div class="links">
+        <a href="file:///C:/Users/yumas/Downloads/index_3.html#terms-section" id="terms-footer-link">利用規約はこちら</a>
+      </div>
+      <div class="copyright">© 2026 Web Production Local Works All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var footerLink = document.getElementById('terms-footer-link');
+      var toggle = document.getElementById('terms-toggle');
+      var panel = document.getElementById('terms-panel');
+
+      function openPanel(){
+        panel.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+      function closePanel(){
+        panel.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.style.maxHeight = null;
+      }
+
+      toggle.addEventListener('click', function(){
+        if (panel.classList.contains('open')) {
+          closePanel();
+        } else {
+          openPanel();
+        }
+      });
+
+      footerLink.addEventListener('click', function(e){
+        e.preventDefault();
+        openPanel();
+        document.getElementById('terms-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      window.addEventListener('resize', function(){
+        if (panel.classList.contains('open')) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    })();
+  </script>
+
+
+
+</body></html>
