@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/yumas/Downloads/index_3.html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +74,6 @@
     margin-bottom: 18px;
   }
 
-  /* ===== Header / Nav ===== */
   header.top-nav{
     position: sticky;
     top: 0;
@@ -114,7 +112,6 @@
     white-space: nowrap;
   }
 
-  /* ===== Hero ===== */
   .hero{
     background:
       radial-gradient(circle at 85% 15%, rgba(217,122,66,0.14), transparent 45%),
@@ -240,7 +237,6 @@
     margin-top: 4px;
   }
 
-  /* ===== Compare Section ===== */
   .compare-wrap{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -305,7 +301,6 @@
   .compare-card.bad .v{ color: #6b6058; }
   .compare-card.good .v{ color: #e7ecf1; }
 
-  /* ===== 3 Reasons ===== */
   .reasons{
     background: var(--navy-pale);
   }
@@ -349,7 +344,6 @@
     color: var(--text-sub);
   }
 
-  /* ===== Pricing ===== */
   .pricing-box{
     max-width: 720px;
     margin: 0 auto;
@@ -429,7 +423,6 @@
     font-size: 16.5px;
   }
 
-  /* ===== Terms Accordion ===== */
   .terms-card{
     background: #fff;
     border-radius: var(--radius);
@@ -521,7 +514,6 @@
     color: var(--text-sub);
   }
 
-  /* ===== Footer ===== */
   footer{
     background: #101c27;
     color: #cfd8e1;
@@ -554,7 +546,6 @@
     color: #7c8a97;
   }
 
-  /* ===== Responsive ===== */
   @media (max-width: 860px){
     .compare-wrap{ grid-template-columns: 1fr; }
     .reason-grid{ grid-template-columns: 1fr; }
@@ -579,19 +570,16 @@
   <header class="top-nav">
     <div class="container">
       <div class="brand"><span class="dot"></span>Local Works</div>
-      <a href="file:///C:/Users/yumas/Downloads/index_3.html#contact" class="nav-cta">LINEで相談</a>
+      <a href="#contact" class="nav-cta">LINEで相談</a>
     </div>
   </header>
 
-  <!-- 1. ヘッダー / メインビジュアル -->
   <section class="hero" id="top">
     <div class="hero-illustration" aria-hidden="true">
       <svg viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg">
-        <!-- soft background blobs -->
         <circle cx="150" cy="120" r="180" fill="var(--hero-accent)" opacity="0.07"></circle>
         <circle cx="1080" cy="520" r="220" fill="var(--navy)" opacity="0.05"></circle>
 
-        <!-- left: ramen bowl -->
         <g transform="translate(70,360)" fill="none" stroke="var(--hero-accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
           <path d="M10 60 C10 130 70 175 140 175 C210 175 270 130 270 60 Z"></path>
           <path d="M-5 60 H285"></path>
@@ -602,20 +590,17 @@
           <path d="M140 20 C 135 5 145 -5 140 -20" opacity="0.6"></path>
         </g>
 
-        <!-- left: chopsticks -->
         <g transform="translate(230,330) rotate(18)" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" opacity="0.3">
           <line x1="0" y1="0" x2="150" y2="10"></line>
           <line x1="0" y1="14" x2="150" y2="24"></line>
         </g>
 
-        <!-- right: teacup -->
         <g transform="translate(970,120)" fill="none" stroke="var(--navy)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.28">
           <path d="M0 40 C0 90 30 115 70 115 C110 115 140 90 140 40 Z"></path>
           <path d="M-8 40 H148"></path>
           <path d="M140 55 C 175 50 175 90 142 90"></path>
         </g>
 
-        <!-- right: small plate with fish -->
         <g transform="translate(940,420)" fill="none" stroke="var(--hero-accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
           <ellipse cx="110" cy="80" rx="150" ry="34"></ellipse>
           <ellipse cx="110" cy="80" rx="95" ry="18" opacity="0.6"></ellipse>
@@ -623,7 +608,6 @@
           <path d="M180 78 L205 62 L205 94 Z"></path>
         </g>
 
-        <!-- scattered herb / steam dots -->
         <g fill="var(--hero-accent)" opacity="0.4">
           <circle cx="330" cy="120" r="5"></circle>
           <circle cx="360" cy="150" r="4"></circle>
@@ -648,7 +632,6 @@
     </div>
   </section>
 
-  <!-- 2. 大手制作会社との違い -->
   <section id="compare">
     <div class="container">
       <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">COMPARISON</span>
@@ -699,7 +682,6 @@
     </div>
   </section>
 
-  <!-- 3. 選ばれる3つの理由 -->
   <section class="reasons" id="reasons">
     <div class="container">
       <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">3 REASONS</span>
@@ -726,7 +708,6 @@
     </div>
   </section>
 
-  <!-- 4. 料金とサポート内容 -->
   <section id="pricing">
     <div class="container">
       <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">PRICE</span>
@@ -742,25 +723,24 @@
           <div class="price-divider"></div>
           <div class="price-block main">
             <div class="label">月額（税込）</div>
-            <div class="amount">60,000<span class="small">円</span></div>
+            <div class="amount">27,000<span class="small">円</span></div>
           </div>
         </div>
         <div class="price-note">
-          オリジナルサイト制作、サーバー維持費、LINEでの修正依頼（月2回まで対応）を含む
+          オリジナルサイト制作、サーバー維持費、LINEでの修正依頼（月1回まで対応）を含む
         </div>
 
         <div class="calc-box">
-          <div class="calc-title">「月額6万円」を、1日あたりで考えると</div>
+          <div class="calc-title">「月額27,000円」を、1日あたりで考えると</div>
           <p>
-            1ヶ月30日で計算すると、1日あたり<strong>約2,000円</strong>です。<br>
-            単純計算で、このホームページを通じて<strong>1日あたり、あと2人</strong>新しいお客様が増えるだけで、十分に元が取れる計算です。
+            1ヶ月30日で計算すると、1日あたり<strong>約900円</strong>です。<br>
+            単純計算で、このホームページを通じて<strong>1日あたり、あと1人</strong>新しいお客様が増えるだけで、十分に元が取れる計算です。
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. 利用規約（サイト内完結アコーディオン） -->
   <section id="terms-section" style="background: var(--navy-pale);">
     <div class="container" style="max-width: 840px;">
       <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">TERMS</span>
@@ -784,8 +764,8 @@
             <div class="t-article">
               <h3>第2条（サービス内容および料金体系）</h3>
               <ol>
-                <li>本サービスは、<strong>初期費用および制作費用0円</strong>、<strong>月額費用60,000円（税込）</strong>の単一の料金体系で提供されるサービスです。</li>
-                <li>月額費用には、ホームページの維持、サーバー管理、および月2回までの軽微な修正（テキスト変更、写真の差し替え等）が含まれます。大幅なデザインリニューアルやシステム機能の追加は別途お見積もりとなります。</li>
+                <li>本サービスは、<strong>初期費用および制作費用0円</strong>、<strong>月額費用27,000円（税込）</strong>の単一の料金体系で提供されるサービスです。</li>
+                <li>月額費用には、ホームページの維持、サーバー管理、および月1回までの軽微な修正（テキスト変更、写真の差し替え等）が含まれます。大幅なデザインリニューアルやシステム機能の追加は別途お見積もりとなります。</li>
               </ol>
             </div>
 
@@ -801,7 +781,7 @@
               <h3>第4条（限定エリア特化対応および修正運営）</h3>
               <ol>
                 <li>オーナーからの修正依頼は、原則として当方の指定する「公式LINEアカウント」にて受け付けます。</li>
-                <li>当方は限定エリアに特化して運営している特性を活かし、依頼受領後、原則として即日〜翌営業日以内（24時間以内を目安）に迅速に修正を反映いたします（月2回まで）。ただし、内容によっては時間を要する場合があります。</li>
+                <li>当方は限定エリアに特化して運営している特性を活かし、依頼受領後、原則として即日〜翌営業日以内（24時間以内を目安）に迅速に修正を反映いたします（月1回まで）。ただし、内容によっては時間を要する場合があります。</li>
               </ol>
             </div>
 
@@ -831,7 +811,6 @@
     </div>
   </section>
 
-  <!-- 6. フッター -->
   <footer id="contact">
     <div class="container">
       <div class="foot-cta">
@@ -839,7 +818,7 @@
         <a href="https://lin.ee/ozYzIKD" target="_blank" class="btn btn-primary">公式LINEで相談する</a>
       </div>
       <div class="links">
-        <a href="file:///C:/Users/yumas/Downloads/index_3.html#terms-section" id="terms-footer-link">利用規約はこちら</a>
+        <a href="#terms-section" id="terms-footer-link">利用規約はこちら</a>
       </div>
       <div class="copyright">© 2026 Web Production Local Works All Rights Reserved.</div>
     </div>
@@ -884,6 +863,6 @@
     })();
   </script>
 
-
-
 </body></html>
+
+ 
