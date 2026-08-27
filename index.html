@@ -1,868 +1,691 @@
 <!DOCTYPE html>
-<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>街の美味しいを、もっと近くに。｜限定エリア特化型 飲食店専門Web制作サポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --navy: #1a2a3a;
-    --navy-light: #24384c;
-    --navy-pale: #eef1f4;
-    --red: #e74c3c;
-    --red-dark: #c0392b;
-    --cream: #fdfaf5;
-    --hero-bg: #faf6ef;
-    --hero-accent: #d97a42;
-    --hero-accent-dark: #c2652f;
-    --line: #dfe4ea;
-    --text-main: #22303e;
-    --text-sub: #5a6a78;
-    --radius: 14px;
+  :root {
+    --bg: #1a2542;
+    --bg-soft: #22304f;
+    --paper-card: #f6f3ec;
+    --hanko: #d94a3a;
+    --hanko-dark: #a3301f;
+    --brass: #dab876;
+    --brass-soft: rgba(218,184,118,0.4);
+    --line: rgba(255,255,255,0.16);
+    --line-soft: rgba(20,26,40,0.14);
+    --text: #f6f7fb;
+    --text-soft: #b7c0d6;
+    --text-dark: #221f1a;
+    --text-dark-soft: #6b6355;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-
-  body{
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
-    color: var(--text-main);
-    background: var(--cream);
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 4px 4px;
+    color: var(--text);
+    font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
     line-height: 1.85;
-    font-size: 17px;
     -webkit-font-smoothing: antialiased;
   }
-
-  img, svg { display:block; max-width: 100%; }
-
-  a { color: inherit; text-decoration: none; }
-
-  .container{
-    width: 100%;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 24px;
+  h1, h2, h3 {
+    font-family: "Zen Old Mincho", serif;
+    margin: 0;
+    color: var(--text);
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+  img, svg { display: block; }
 
-  section { padding: 88px 0; }
-
-  h2.section-title{
-    font-size: clamp(26px, 4.2vw, 36px);
-    font-weight: 800;
-    text-align: center;
-    color: var(--navy);
-    letter-spacing: 0.04em;
-    margin-bottom: 14px;
-  }
-
-  .section-lead{
-    text-align: center;
-    color: var(--text-sub);
-    font-size: 16px;
-    margin-bottom: 56px;
-  }
-
-  .eyebrow{
-    display:inline-block;
-    font-size: 14px;
+  .label {
+    font-family: "Zen Kaku Gothic New", sans-serif;
     font-weight: 700;
-    color: var(--red);
-    background: rgba(231,76,60,0.09);
-    padding: 6px 18px;
-    border-radius: 999px;
-    letter-spacing: 0.12em;
-    margin-bottom: 18px;
+    letter-spacing: 0.32em;
+    font-size: 11px;
+    color: var(--brass);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+  }
+  .label::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
   }
 
-  header.top-nav{
+  /* ---- Header ---- */
+  header {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: var(--hero-bg);
+    z-index: 40;
+    background: rgba(26,37,66,0.9);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
-  .top-nav .container{
-    display:flex;
-    align-items:center;
+  .header-inner {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    height: 68px;
+    padding: 16px 24px;
+    max-width: 880px;
+    margin: 0 auto;
   }
-  .brand{
-    color: var(--navy);
-    font-weight: 800;
-    font-size: 17px;
-    letter-spacing: 0.03em;
-    display:flex;
-    align-items:center;
-    gap: 8px;
+  .logo {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--text);
+    letter-spacing: 0.04em;
   }
-  .brand .dot{
-    width: 9px; height:9px; border-radius:50%;
-    background: var(--hero-accent);
-    display:inline-block;
-  }
-  .nav-cta{
-    background: var(--hero-accent);
-    color:#fff;
-    font-weight:700;
-    font-size: 14px;
-    padding: 10px 20px;
-    border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(217,122,66,0.35);
+  .nav-cta {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    background: var(--hanko);
+    color: #fff;
+    padding: 9px 16px;
+    border-radius: 3px;
+    text-decoration: none;
     white-space: nowrap;
   }
 
-  .hero{
-    background:
-      radial-gradient(circle at 85% 15%, rgba(217,122,66,0.14), transparent 45%),
-      radial-gradient(circle at 10% 85%, rgba(26,42,58,0.05), transparent 40%),
-      linear-gradient(160deg, var(--hero-bg) 0%, #f3ece0 100%);
-    color: var(--navy);
-    padding: 100px 0 90px;
+  /* ---- Hero ---- */
+  .hero {
+    padding: 80px 0 64px;
+    text-align: center;
+  }
+  .hero .label { justify-content: center; margin-bottom: 22px; }
+  .hero .label::after {
+    content: "";
+    width: 22px; height: 1px; background: var(--brass);
+  }
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .hero .sub {
+    margin: 24px auto 0;
+    max-width: 480px;
+    color: var(--text-soft);
+    font-size: 15px;
+  }
+  .hero-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 15px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14.5px;
+    letter-spacing: 0.03em;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: var(--hanko);
+    color: #fff;
+    box-shadow: 0 6px 0 var(--hanko-dark);
+  }
+  .btn-primary:hover { box-shadow: 0 4px 0 var(--hanko-dark); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--brass-soft);
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  .stat {
+    flex: 1;
+    max-width: 180px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--brass);
+  }
+  .stat .cap {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 11px;
+    color: var(--text-soft);
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- Sections ---- */
+  section { padding: 72px 0; }
+  .section-head { text-align: center; margin-bottom: 44px; }
+  .section-head h2 {
+    font-size: 30px;
+    margin-top: 16px;
+    line-height: 1.6;
+    font-weight: 700;
+  }
+  .section-head p { color: var(--text-soft); font-size: 14px; margin-top: 16px; }
+  .section-head::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 5px;
+    margin: 18px auto 0;
+    background-image: linear-gradient(var(--brass), var(--brass)), linear-gradient(var(--brass), var(--brass));
+    background-size: 100% 1px, 100% 1px;
+    background-position: top, bottom;
+    background-repeat: no-repeat;
+  }
+
+  /* ---- Founder message ---- */
+  .message-card {
     position: relative;
-    overflow: hidden;
+    background: var(--paper-card);
+    border-radius: 6px;
+    padding: 56px 40px;
+    box-shadow: 0 24px 50px -24px rgba(0,0,0,0.55), 0 2px 0 var(--brass-soft);
+    color: var(--text-dark);
   }
-  .hero::after{
-    content:"";
-    position:absolute;
-    right: -60px;
-    bottom: -80px;
-    width: 320px;
-    height: 320px;
-    border: 2px solid rgba(217,122,66,0.3);
+  .message-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .message-avatar {
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-  }
-  .hero-illustration{
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
+    background: var(--bg);
+    color: var(--paper-card);
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .hero-illustration svg{
-    width: 100%;
-    height: 100%;
-    max-width: 1300px;
-  }
-  .hero-inner{
-    text-align:center;
-    max-width: 760px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-  .hero-badge{
-    display:inline-block;
-    background: rgba(26,42,58,0.05);
-    border: 1px solid rgba(26,42,58,0.15);
-    color: var(--navy);
-    font-size: 13px;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 20px;
     font-weight: 700;
-    padding: 7px 18px;
-    border-radius: 999px;
-    letter-spacing: 0.08em;
-    margin-bottom: 28px;
+    flex-shrink: 0;
+    border: 2px solid var(--brass);
   }
-  .hero h1{
-    font-size: clamp(30px, 6vw, 50px);
-    font-weight: 900;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    margin-bottom: 22px;
-    color: var(--navy);
-  }
-  .hero h1 .accent{ color: var(--hero-accent-dark); }
-  .hero p.sub{
-    font-size: clamp(16px, 2.6vw, 19px);
-    color: var(--text-sub);
-    font-weight: 500;
-    margin-bottom: 40px;
-  }
-  .hero-actions{
-    display:flex;
-    justify-content:center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .btn{
-    display:inline-block;
-    font-weight: 800;
-    font-size: 16px;
-    padding: 17px 34px;
-    border-radius: 999px;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .btn:hover{ transform: translateY(-2px); }
-  .btn-primary{
-    background: var(--red);
-    color: #fff;
-    box-shadow: 0 10px 26px rgba(231,76,60,0.4);
-  }
-  .btn-primary:hover{ box-shadow: 0 14px 30px rgba(231,76,60,0.5); }
-  .btn-ghost{
-    background: transparent;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.4);
-  }
-  .hero .btn-primary{
-    background: var(--hero-accent);
-    color: #fff;
-    box-shadow: 0 10px 26px rgba(217,122,66,0.4);
-  }
-  .hero .btn-primary:hover{ box-shadow: 0 14px 30px rgba(217,122,66,0.5); }
-  .hero .btn-ghost{
-    background: transparent;
-    color: var(--navy);
-    border: 1px solid rgba(26,42,58,0.3);
-  }
-  .hero-stats{
-    margin-top: 56px;
-    display:flex;
-    justify-content:center;
-    gap: 40px;
-    flex-wrap: wrap;
-    color: var(--navy);
-  }
-  .hero-stats .stat{ text-align:center; }
-  .hero-stats .stat .num{
-    font-size: 26px;
-    font-weight: 900;
-    color: var(--hero-accent-dark);
-  }
-  .hero-stats .stat .label{
-    font-size: 13px;
-    color: var(--text-sub);
-    margin-top: 4px;
-  }
-
-  .compare-wrap{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  .compare-card{
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 34px 28px;
-    border: 1px solid var(--line);
-  }
-  .compare-card.bad{
-    background: #f6f2ee;
-  }
-  .compare-card.good{
-    background: var(--navy);
-    color: #fff;
-    border: none;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(26,42,58,0.25);
-  }
-  .compare-card.good::before{
-    content: "選ばれる理由";
-    position: absolute;
-    top: -14px;
-    left: 28px;
-    background: var(--red);
-    color:#fff;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 6px 14px;
-    border-radius: 999px;
-    letter-spacing: 0.06em;
-  }
-  .compare-card h3{
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px dashed rgba(0,0,0,0.15);
-  }
-  .compare-card.good h3{ border-bottom-color: rgba(255,255,255,0.2); }
-  .compare-card.bad h3{ color: #8a7a70; }
-
-  .compare-item{ margin-bottom: 22px; }
-  .compare-item:last-child{ margin-bottom: 0; }
-  .compare-item .k{
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
-    display:flex;
-    align-items:center;
-    gap:6px;
-  }
-  .compare-card.bad .k{ color: #a8443b; }
-  .compare-card.good .k{ color: #f2a49c; }
-  .compare-item .v{
-    font-size: 15.5px;
-    line-height: 1.75;
-  }
-  .compare-card.bad .v{ color: #6b6058; }
-  .compare-card.good .v{ color: #e7ecf1; }
-
-  .reasons{
-    background: var(--navy-pale);
-  }
-  .reason-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .reason-card{
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 36px 26px;
-    text-align:center;
-    border: 1px solid var(--line);
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .reason-card:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 18px 30px rgba(26,42,58,0.1);
-  }
-  .reason-num{
-    width: 56px;
-    height: 56px;
-    line-height: 56px;
-    border-radius: 50%;
-    background: var(--navy);
-    color: #fff;
-    font-weight: 900;
-    font-size: 20px;
-    margin: 0 auto 20px;
-  }
-  .reason-card h3{
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 14px;
-    line-height: 1.6;
-  }
-  .reason-card p{
-    font-size: 14.5px;
-    color: var(--text-sub);
-  }
-
-  .pricing-box{
-    max-width: 720px;
-    margin: 0 auto;
-    background: var(--navy);
-    color: #fff;
-    border-radius: 20px;
-    padding: 52px 40px;
-    text-align:center;
-    box-shadow: 0 24px 50px rgba(26,42,58,0.3);
-    position: relative;
-    overflow: hidden;
-  }
-  .pricing-box::before{
-    content:"";
-    position:absolute;
-    top:-40px; left:-40px;
-    width:160px; height:160px;
-    background: rgba(231,76,60,0.25);
-    border-radius:50%;
-    filter: blur(10px);
-  }
-  .price-row{
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap: 36px;
-    flex-wrap: wrap;
-    margin: 30px 0 20px;
-    position: relative;
-  }
-  .price-block .label{
-    font-size: 13px;
-    color: #b9c4cf;
+  .message-quote-mark {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 64px;
+    color: var(--brass);
+    line-height: 0.4;
     margin-bottom: 8px;
-    letter-spacing: 0.05em;
+    display: block;
   }
-  .price-block .amount{
-    font-size: 40px;
-    font-weight: 900;
+  .message-body {
+    font-size: 15.5px;
+    color: var(--text-dark);
+    max-width: 640px;
   }
-  .price-block .amount .small{ font-size: 16px; font-weight:700; }
-  .price-block.main .amount{ color: var(--red); font-size: 52px; }
-  .price-divider{
-    width: 1px;
-    height: 60px;
-    background: rgba(255,255,255,0.2);
-    align-self: center;
-  }
-  .price-note{
-    font-size: 13.5px;
-    color: #b9c4cf;
-    margin-top: 20px;
-    line-height: 1.9;
-  }
-  .calc-box{
-    margin-top: 34px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 14px;
-    padding: 26px 24px;
-    text-align: left;
-    position: relative;
-  }
-  .calc-box .calc-title{
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--red);
-    margin-bottom: 12px;
-  }
-  .calc-box p{
+  .message-body p { margin: 0 0 20px; }
+  .message-body p:last-child { margin-bottom: 0; }
+  .message-sign {
+    margin-top: 32px;
+    font-family: "Zen Old Mincho", serif;
     font-size: 15px;
-    color: #e7ecf1;
-    line-height: 1.9;
+    color: var(--text-dark);
+    text-align: right;
   }
-  .calc-box strong{
-    color: #fff;
-    font-size: 16.5px;
-  }
-
-  .terms-card{
-    background: #fff;
-    border-radius: var(--radius);
-    border: 1px solid var(--line);
-    overflow: hidden;
-  }
-  .terms-toggle{
-    width: 100%;
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    gap: 16px;
-    background: #fff;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    padding: 24px 26px;
-    font-size: 15.5px;
-    font-weight: 800;
-    color: var(--navy);
-    font-family: inherit;
-  }
-  .terms-toggle:hover{ background: #faf9f7; }
-  .terms-toggle .chevron{
-    flex: none;
-    font-size: 13px;
-    color: var(--hero-accent-dark);
-    transition: transform .25s ease;
-  }
-  .terms-toggle[aria-expanded="true"] .chevron{
-    transform: rotate(180deg);
-  }
-  .terms-panel{
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .35s ease;
-  }
-  .terms-panel-inner{
-    padding: 6px 26px 30px;
-    border-top: 1px solid var(--line);
-  }
-  .t-article{
-    padding-top: 24px;
-  }
-  .t-article h3{
-    font-size: 15.5px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .t-article p.plain,
-  .t-article > p{
-    font-size: 14.5px;
-    color: var(--text-main);
-  }
-  .t-article ol{
-    list-style: none;
-    counter-reset: t-clause;
-  }
-  .t-article ol li{
-    counter-increment: t-clause;
-    position: relative;
-    padding-left: 26px;
-    margin-bottom: 10px;
-    font-size: 14.5px;
-    color: var(--text-main);
-  }
-  .t-article ol li:last-child{ margin-bottom: 0; }
-  .t-article ol li::before{
-    content: counter(t-clause);
-    position: absolute;
-    left: 0;
-    top: 1px;
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
-    text-align:center;
+  .message-sign span {
+    display: block;
+    font-family: "Zen Kaku Gothic New", sans-serif;
     font-size: 11px;
-    font-weight: 800;
-    color: var(--hero-accent-dark);
-    background: rgba(217,122,66,0.12);
-    border-radius: 5px;
-  }
-  .t-article strong{ color: var(--hero-accent-dark); }
-  .t-updated{
-    margin-top: 26px;
-    text-align: center;
-    font-size: 12.5px;
-    color: var(--text-sub);
+    letter-spacing: 0.14em;
+    color: var(--text-dark-soft);
+    margin-bottom: 4px;
   }
 
-  footer{
-    background: #101c27;
-    color: #cfd8e1;
-    padding: 56px 0 30px;
-    text-align:center;
+  /* ---- Comparison ---- */
+  .compare {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
-  footer .foot-cta{
-    margin-bottom: 34px;
+  .compare-item {
+    background: var(--paper-card);
+    border-radius: 8px;
+    padding: 26px 28px;
+    box-shadow: 0 16px 34px -20px rgba(0,0,0,0.5), 0 2px 0 var(--brass-soft);
   }
-  footer .foot-cta p{
+  .compare-item .crit-title {
+    font-family: "Zen Old Mincho", serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .compare-item .crit-title::before {
+    content: "";
+    width: 4px;
+    height: 18px;
+    background: var(--hanko);
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .compare-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .compare-side .tag {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .compare-side.them .tag { background: rgba(107,99,85,0.12); color: var(--text-dark-soft); }
+  .compare-side.us .tag { background: var(--hanko); color: #fff; }
+  .compare-side p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+  .compare-side.them p { color: var(--text-dark-soft); }
+  .compare-side.us p { color: var(--text-dark); font-weight: 500; }
+
+  /* ---- 3 reasons ---- */
+  .reason {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .reason:last-child { border-bottom: none; }
+  .reason-num {
+    font-family: "Zen Old Mincho", serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1.4px var(--brass);
+    line-height: 1;
+  }
+  .reason h3 { font-size: 19px; margin-bottom: 10px; line-height: 1.6; }
+  .reason p { margin: 0; color: var(--text-soft); font-size: 14px; }
+
+  /* ---- Price ---- */
+  .price-card {
+    background: var(--paper-card);
+    border-radius: 6px;
+    padding: 52px 32px;
+    text-align: center;
+    box-shadow: 0 24px 50px -22px rgba(0,0,0,0.55), 0 2px 0 var(--brass-soft);
+    color: var(--text-dark);
+  }
+  .price-grid {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .price-item .k { font-family: "Zen Kaku Gothic New", sans-serif; font-size: 12px; color: var(--text-dark-soft); letter-spacing: 0.08em; }
+  .price-item .v { font-family: "Zen Old Mincho", serif; font-size: 40px; font-weight: 800; color: var(--text-dark); margin-top: 6px; }
+  .price-item .v span { font-size: 16px; font-weight: 500; }
+  .price-note { color: var(--text-dark-soft); font-size: 12.5px; margin-top: 18px; }
+
+  .daily-cost {
+    max-width: 560px;
+    margin: 40px auto 0;
+    padding-top: 32px;
+    border-top: 1px dashed var(--line-soft);
+    font-size: 14.5px;
+    color: var(--text-dark-soft);
+  }
+  .daily-cost strong { color: var(--hanko); font-size: 20px; font-family: "Zen Old Mincho", serif; }
+
+  /* ---- Terms accordion ---- */
+  details {
+    background: var(--paper-card);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -18px rgba(0,0,0,0.5);
+  }
+  summary {
+    padding: 18px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-dark);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    font-size: 20px;
+    color: var(--hanko);
+    font-family: "Zen Old Mincho", serif;
+  }
+  details[open] summary::after { content: "–"; }
+  .term-body {
+    padding: 0 20px 24px;
+    font-size: 13.5px;
+    color: var(--text-dark-soft);
+  }
+  .term-body h4 {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    margin: 18px 0 6px;
+  }
+  .term-body h4:first-child { margin-top: 0; }
+  .term-body p { margin: 4px 0; }
+
+  /* ---- Final CTA ---- */
+  .final-cta {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    color: var(--text);
+    text-align: center;
+    padding: 72px 24px;
+    border-radius: 6px;
+  }
+  .final-cta h2 { color: var(--text); font-size: 24px; margin-bottom: 28px; }
+
+  .message-compact {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--text-soft);
+  }
+  .message-compact-title {
+    font-family: "Zen Old Mincho", serif;
     font-size: 15px;
-    color: #b9c4cf;
+    font-weight: 700;
+    color: var(--brass);
+    letter-spacing: 0.1em;
     margin-bottom: 18px;
   }
-  footer .links{
-    display:flex;
-    justify-content:center;
-    gap: 24px;
-    flex-wrap: wrap;
+  .message-compact p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--text);
+    margin: 0 0 14px;
+  }
+  .message-compact-name {
+    font-family: "Zen Old Mincho", serif;
     font-size: 13.5px;
-    margin-bottom: 24px;
-  }
-  footer .links a{
-    color: #b9c4cf;
-    border-bottom: 1px solid transparent;
-  }
-  footer .links a:hover{ border-bottom-color: #b9c4cf; }
-  footer .copyright{
-    font-size: 12.5px;
-    color: #7c8a97;
+    color: var(--text-soft);
   }
 
-  @media (max-width: 860px){
-    .compare-wrap{ grid-template-columns: 1fr; }
-    .reason-grid{ grid-template-columns: 1fr; }
-    section{ padding: 64px 0; }
-    .price-row{ gap: 20px; }
-    .price-divider{ display:none; }
-    .nav-cta{ font-size: 13px; padding: 9px 16px; }
-    .pricing-box{ padding: 40px 22px; }
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    color: var(--text-soft);
+    font-family: "Zen Kaku Gothic New", sans-serif;
+  }
+  footer a { text-decoration: underline; margin: 0 6px; color: var(--text-soft); }
+
+  @media (max-width: 560px) {
+    .compare-pair { grid-template-columns: 1fr; gap: 14px; }
+    .compare-item { padding: 22px 20px; }
+    .reason { grid-template-columns: 48px 1fr; }
+    .reason-num { font-size: 30px; }
+    .price-grid { gap: 28px; }
+    .stat-row { padding: 16px 0; }
+    .stat .num { font-size: 20px; }
+    .message-card { padding: 36px 22px; }
   }
 
-  @media (max-width: 480px){
-    body{ font-size: 16px; }
-    .brand{ font-size: 15px; }
-    .btn{ width: 100%; text-align:center; }
-    .hero-actions{ flex-direction: column; }
-    .price-block.main .amount{ font-size: 42px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn:hover { transform: none; }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
   }
 </style>
 </head>
 <body>
 
-  <header class="top-nav">
-    <div class="container">
-      <div class="brand"><span class="dot"></span>Local Works</div>
-      <a href="#contact" class="nav-cta">LINEで相談</a>
+<header>
+  <div class="header-inner">
+    <div class="logo">Local Works</div>
+    <a class="nav-cta" href="#contact">LINEで相談</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="label">限定エリア特化型・飲食店専門</div>
+    <h1>街の美味しいを、<br>もっと近くに。</h1>
+    <p class="sub">限定エリア特化型・飲食店専門のWeb制作サポート</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://lin.ee/ozYzIKD" id="contact">公式LINEで無料相談する</a>
+      <a class="btn btn-ghost" href="#pricing">料金を見る</a>
     </div>
-  </header>
-
-  <section class="hero" id="top">
-    <div class="hero-illustration" aria-hidden="true">
-      <svg viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="150" cy="120" r="180" fill="var(--hero-accent)" opacity="0.07"></circle>
-        <circle cx="1080" cy="520" r="220" fill="var(--navy)" opacity="0.05"></circle>
-
-        <g transform="translate(70,360)" fill="none" stroke="var(--hero-accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
-          <path d="M10 60 C10 130 70 175 140 175 C210 175 270 130 270 60 Z"></path>
-          <path d="M-5 60 H285"></path>
-          <path d="M40 60 C 55 20 105 20 120 60" opacity="0.7"></path>
-          <path d="M150 60 C 165 20 205 25 215 60" opacity="0.7"></path>
-          <path d="M60 20 C 55 5 65 -5 60 -20" opacity="0.6"></path>
-          <path d="M100 15 C 95 0 105 -10 100 -25" opacity="0.6"></path>
-          <path d="M140 20 C 135 5 145 -5 140 -20" opacity="0.6"></path>
-        </g>
-
-        <g transform="translate(230,330) rotate(18)" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" opacity="0.3">
-          <line x1="0" y1="0" x2="150" y2="10"></line>
-          <line x1="0" y1="14" x2="150" y2="24"></line>
-        </g>
-
-        <g transform="translate(970,120)" fill="none" stroke="var(--navy)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.28">
-          <path d="M0 40 C0 90 30 115 70 115 C110 115 140 90 140 40 Z"></path>
-          <path d="M-8 40 H148"></path>
-          <path d="M140 55 C 175 50 175 90 142 90"></path>
-        </g>
-
-        <g transform="translate(940,420)" fill="none" stroke="var(--hero-accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
-          <ellipse cx="110" cy="80" rx="150" ry="34"></ellipse>
-          <ellipse cx="110" cy="80" rx="95" ry="18" opacity="0.6"></ellipse>
-          <path d="M60 78 C 90 55 150 55 180 78 C 150 100 90 100 60 78 Z"></path>
-          <path d="M180 78 L205 62 L205 94 Z"></path>
-        </g>
-
-        <g fill="var(--hero-accent)" opacity="0.4">
-          <circle cx="330" cy="120" r="5"></circle>
-          <circle cx="360" cy="150" r="4"></circle>
-          <circle cx="870" cy="260" r="5"></circle>
-          <circle cx="900" cy="230" r="4"></circle>
-        </g>
-      </svg>
-    </div>
-    <div class="container hero-inner">
-      <span class="hero-badge">限定エリア特化型・飲食店専門</span>
-      <h1>街の美味しいを、<br><span class="accent">もっと近くに。</span></h1>
-      <p class="sub">限定エリア特化型・飲食店専門のWeb制作サポート</p>
-      <div class="hero-actions">
-        <a href="https://lin.ee/ozYzIKD" class="btn btn-primary">公式LINEで無料相談する</a>
-        <a href="#pricing" class="btn btn-ghost">料金を見る</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="num">0円</div><div class="label">初期費用</div></div>
-        <div class="stat"><div class="num">即日〜翌日</div><div class="label">修正対応</div></div>
-        <div class="stat"><div class="num">1つ</div><div class="label">明朗な料金体系</div></div>
-      </div>
+    <div class="stat-row">
+      <div class="stat"><div class="num">0円</div><div class="cap">初期費用</div></div>
+      <div class="stat"><div class="num">即日〜翌日</div><div class="cap">修正対応</div></div>
+      <div class="stat"><div class="num">1つ</div><div class="cap">明朗な料金体系</div></div>
     </div>
   </section>
 
-  <section id="compare">
-    <div class="container">
-      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">COMPARISON</span>
-      <h2 class="section-title">大手制作会社との違い</h2>
-      <p class="section-lead">「結局よくわからないまま契約して、高い料金だけ払い続けている」<br>そんなお悩みはありませんか？</p>
 
-      <div class="compare-wrap">
-        <div class="compare-card bad">
-          <h3>大手制作会社の場合</h3>
-          <div class="compare-item">
-            <div class="k">費用</div>
-            <div class="v">初期費用・制作費用で数十万円。さらに毎月の維持費や、ちょっとした修正ごとに追加費用が発生して高額になりがち。</div>
+  <section id="comparison">
+    <div class="section-head">
+      <div class="label">COMPARISON</div>
+      <h2>大手制作会社との違い</h2>
+      <p>「結局よくわからないまま契約して、高い料金だけ払い続けている」<br>そんなお悩みはありませんか？</p>
+    </div>
+    <div class="compare">
+      <div class="compare-item">
+        <div class="crit-title">費用</div>
+        <div class="compare-pair">
+          <div class="compare-side them">
+            <span class="tag">大手制作会社</span>
+            <p>初期費用・制作費用で数十万円。維持費や修正のたびに追加費用が発生しがち。</p>
           </div>
-          <div class="compare-item">
-            <div class="k">対応スピード</div>
-            <div class="v">顧客数が多すぎるため、新メニューの追加や営業時間の変更を頼んでも、反映されるまでに数ヶ月かかることも珍しくありません。</div>
-          </div>
-          <div class="compare-item">
-            <div class="k">スタンス</div>
-            <div class="v">お店を本気で応援したいというより、ノルマ達成のために機械的な押し売り営業になりがち。</div>
-          </div>
-          <div class="compare-item">
-            <div class="k">分かりやすさ</div>
-            <div class="v">料金プランが大量にあって複雑。しかも高いプランを選ばないと、まともに機能するサイトが作れない仕組みになっている。</div>
+          <div class="compare-side us">
+            <span class="tag">当方</span>
+            <p>初期費用・制作費用は完全0円。無駄な追加費用も一切なし。</p>
           </div>
         </div>
-
-        <div class="compare-card good">
-          <h3>当方（限定エリア特化サポート）の場合</h3>
-          <div class="compare-item">
-            <div class="k">費用</div>
-            <div class="v">初期費用・制作費用は「完全0円」。無駄な追加費用も一切なし。</div>
+      </div>
+      <div class="compare-item">
+        <div class="crit-title">対応スピード</div>
+        <div class="compare-pair">
+          <div class="compare-side them">
+            <span class="tag">大手制作会社</span>
+            <p>顧客数が多く、メニュー変更などの反映に数ヶ月かかることも。</p>
           </div>
-          <div class="compare-item">
-            <div class="k">対応スピード</div>
-            <div class="v">対象を狭いエリアに絞っているため、LINE一本で即日〜翌日には修正が完了する圧倒的な軽快さ。</div>
+          <div class="compare-side us">
+            <span class="tag">当方</span>
+            <p>エリアを絞っているからこそ、LINE一本で即日〜翌日に対応。</p>
           </div>
-          <div class="compare-item">
-            <div class="k">スタンス</div>
-            <div class="v">地域の本当に美味しい個人店を本気で応援したいからこそ、オーナー様に寄り添った提案を徹底。</div>
+        </div>
+      </div>
+      <div class="compare-item">
+        <div class="crit-title">スタンス</div>
+        <div class="compare-pair">
+          <div class="compare-side them">
+            <span class="tag">大手制作会社</span>
+            <p>ノルマ達成のための、機械的な押し売り営業になりがち。</p>
           </div>
-          <div class="compare-item">
-            <div class="k">分かりやすさ</div>
-            <div class="v">選択肢で迷わせない、明朗な「1つだけの料金体系」。最初から必要な機能がすべて揃っています。</div>
+          <div class="compare-side us">
+            <span class="tag">当方</span>
+            <p>地域の個人店を本気で応援したいからこその、寄り添った提案。</p>
+          </div>
+        </div>
+      </div>
+      <div class="compare-item">
+        <div class="crit-title">分かりやすさ</div>
+        <div class="compare-pair">
+          <div class="compare-side them">
+            <span class="tag">大手制作会社</span>
+            <p>料金プランが複雑。高いプランでないと機能が揃わない仕組み。</p>
+          </div>
+          <div class="compare-side us">
+            <span class="tag">当方</span>
+            <p>選択肢で迷わせない、明朗な「1つだけ」の料金体系。</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="reasons" id="reasons">
-    <div class="container">
-      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">3 REASONS</span>
-      <h2 class="section-title">選ばれる3つの理由</h2>
-      <p class="section-lead">狭いエリアだからこそできる、丁寧で軽快なサポートがあります。</p>
-
-      <div class="reason-grid">
-        <div class="reason-card">
-          <div class="reason-num">1</div>
-          <h3>初期費用は<br>完全0円</h3>
-          <p>まとまった予算がない個人店のオーナー様でも、リスクなく最新のスマホ専用サイトを持てます。</p>
-        </div>
-        <div class="reason-card">
-          <div class="reason-num">2</div>
-          <h3>限定エリアならではの<br>圧倒的なフットワーク</h3>
-          <p>あえて狭いエリアに限定してサポートしているため、新メニューの追加や臨時休業の案内なども、何かあれば即座に対応・駆けつけることが可能です。</p>
-        </div>
-        <div class="reason-card">
-          <div class="reason-num">3</div>
-          <h3>Googleマップからの<br>新規客を逃さない</h3>
-          <p>Googleマップにお店の情報は載っているのに、ウェブサイトの欄が空欄（または食べログ等）になっていませんか？専用のスマホサイトを登録することで、他店への流出を防ぎ、確実な予約へ繋げます。</p>
-        </div>
+  <section id="reasons">
+    <div class="section-head">
+      <div class="label">3 REASONS</div>
+      <h2>選ばれる3つの理由</h2>
+      <p>狭いエリアだからこそできる、丁寧で軽快なサポートがあります。</p>
+    </div>
+    <div class="reason">
+      <div class="reason-num">01</div>
+      <div>
+        <h3>初期費用は完全0円</h3>
+        <p>まとまった予算がない個人店のオーナー様でも、リスクなく最新のスマホ専用サイトを持てます。</p>
+      </div>
+    </div>
+    <div class="reason">
+      <div class="reason-num">02</div>
+      <div>
+        <h3>限定エリアならではの圧倒的なフットワーク</h3>
+        <p>あえて狭いエリアに限定してサポートしているため、新メニューの追加や臨時休業の案内なども、何かあれば即座に対応・駆けつけることが可能です。</p>
+      </div>
+    </div>
+    <div class="reason">
+      <div class="reason-num">03</div>
+      <div>
+        <h3>Googleマップからの新規客を逃さない</h3>
+        <p>Googleマップにお店の情報は載っているのに、ウェブサイトの欄が空欄（または食べログ等）になっていませんか？専用のスマホサイトを登録することで、他店への流出を防ぎ、確実な予約へ繋げます。</p>
       </div>
     </div>
   </section>
 
   <section id="pricing">
-    <div class="container">
-      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">PRICE</span>
-      <h2 class="section-title">料金とサポート内容</h2>
-      <p class="section-lead">迷わせない、明朗な料金です。</p>
-
-      <div class="pricing-box">
-        <div class="price-row">
-          <div class="price-block">
-            <div class="label">初期費用</div>
-            <div class="amount">0<span class="small">円</span></div>
-          </div>
-          <div class="price-divider"></div>
-          <div class="price-block main">
-            <div class="label">月額（税込）</div>
-            <div class="amount">27,000<span class="small">円</span></div>
-          </div>
+    <div class="section-head">
+      <div class="label">PRICE</div>
+      <h2>料金とサポート内容</h2>
+      <p>迷わせない、明朗な料金です。</p>
+    </div>
+    <div class="price-card">
+      <div class="price-grid">
+        <div class="price-item">
+          <div class="k">初期費用</div>
+          <div class="v">0<span>円</span></div>
         </div>
-        <div class="price-note">
-          オリジナルサイト制作、サーバー維持費、LINEでの修正依頼（月1回まで対応）を含む
+        <div class="price-item">
+          <div class="k">月額（税込）</div>
+          <div class="v">27,000<span>円</span></div>
         </div>
-
-        <div class="calc-box">
-          <div class="calc-title">「月額27,000円」を、1日あたりで考えると</div>
-          <p>
-            1ヶ月30日で計算すると、1日あたり<strong>約900円</strong>です。<br>
-            単純計算で、このホームページを通じて<strong>1日あたり、あと1人</strong>新しいお客様が増えるだけで、十分に元が取れる計算です。
-          </p>
-        </div>
+      </div>
+      <p class="price-note">オリジナルサイト制作、サーバー維持費、LINEでの修正依頼（月1回まで対応）を含む</p>
+      <div class="daily-cost">
+        「月額27,000円」を、1日あたりで考えると<br>
+        1ヶ月30日で計算すると、1日あたり<strong>約900円</strong>です。<br>
+        単純計算で、このホームページを通じて<strong>1日あたり、あと1人</strong>新しいお客様が増えるだけで、十分に元が取れる計算です。
       </div>
     </div>
   </section>
 
-  <section id="terms-section" style="background: var(--navy-pale);">
-    <div class="container" style="max-width: 840px;">
-      <span class="eyebrow" style="display:block; text-align:center; width:fit-content; margin-left:auto; margin-right:auto;">TERMS</span>
-      <h2 class="section-title">利用規約</h2>
-      <p class="section-lead">ご利用の前に、必ずご確認ください。</p>
+  <section id="terms-section">
+    <div class="section-head">
+      <div class="label">TERMS</div>
+      <h2>利用規約</h2>
+      <p>ご利用の前に、必ずご確認ください。</p>
+    </div>
+    <details>
+      <summary>【最新版】Local Works ホームページ制作・運営保守サービス利用規約</summary>
+      <div class="term-body">
+        <h4>第1条（目的）</h4>
+        <p>本規約は、Local Works（以下「当方」）が提供するホームページ制作および運営保守サービス（以下「本サービス」）の利用条件を定めるものです。契約者（以下「オーナー」）は、本規約に同意の上、本サービスを利用するものとします。</p>
 
-      <div class="terms-card">
-        <button type="button" id="terms-toggle" class="terms-toggle" aria-expanded="false" aria-controls="terms-panel">
-          <span>【最新版】Local Works ホームページ制作・運営保守サービス利用規約</span>
-          <span class="chevron" aria-hidden="true">▼</span>
-        </button>
+        <h4>第2条（サービス内容および料金体系）</h4>
+        <p>1. 本サービスは、初期費用および制作費用0円、月額費用27,000円（税込）の単一の料金体系で提供されるサービスです。</p>
+        <p>2. 月額費用には、ホームページの維持、サーバー管理、および月1回までの軽微な修正（テキスト変更、写真の差し替え等）が含まれます。大幅なデザインリニューアルやシステム機能の追加は別途お見積もりとなります。</p>
 
-        <div id="terms-panel" class="terms-panel">
-          <div class="terms-panel-inner">
+        <h4>第3条（決済方法および基準日）</h4>
+        <p>1. 月額費用は、Stripe決済システムを通じたクレジットカード自動決済にてお支払いいただきます。</p>
+        <p>2. 初回の決済が完了した日を基準日とし、翌月以降も毎月同日に自動的に決済が行われます。</p>
 
-            <div class="t-article">
-              <h3>第1条（目的）</h3>
-              <p>本規約は、Local Works（以下「当方」）が提供するホームページ制作および運営保守サービス（以下「本サービス」）の利用条件を定めるものです。契約者（以下「オーナー」）は、本規約に同意の上、本サービスを利用するものとします。</p>
-            </div>
+        <h4>第4条（限定エリア特化対応および修正運営）</h4>
+        <p>1. オーナーからの修正依頼は、原則として当方の指定する「公式LINEアカウント」にて受け付けます。</p>
+        <p>2. 当方は限定エリアに特化して運営している特性を活かし、依頼受領後、原則として即日〜翌営業日以内（24時間以内を目安）に迅速に修正を反映いたします（月1回まで）。ただし、内容によっては時間を要する場合があります。</p>
 
-            <div class="t-article">
-              <h3>第2条（サービス内容および料金体系）</h3>
-              <ol>
-                <li>本サービスは、<strong>初期費用および制作費用0円</strong>、<strong>月額費用27,000円（税込）</strong>の単一の料金体系で提供されるサービスです。</li>
-                <li>月額費用には、ホームページの維持、サーバー管理、および月1回までの軽微な修正（テキスト変更、写真の差し替え等）が含まれます。大幅なデザインリニューアルやシステム機能の追加は別途お見積もりとなります。</li>
-              </ol>
-            </div>
+        <h4>第5条（解約・契約終了）</h4>
+        <p>1. オーナーは、本サービスをいつでも解約することができます。</p>
+        <p>2. 解約を希望する場合、次回引き落とし日の【14日前】までに公式LINEアカウントにて解約の旨を通知するものとします。</p>
+        <p>3. 期間途中の解約であっても、日割り計算による返金は一切行いません。</p>
+        <p>4. 解約が成立した場合、当方は対象ホームページの公開を即座に停止（削除）いたします。</p>
 
-            <div class="t-article">
-              <h3>第3条（決済方法および基準日）</h3>
-              <ol>
-                <li>月額費用は、Stripe決済システムを通じたクレジットカード自動決済にてお支払いいただきます。</li>
-                <li>初回の決済が完了した日を基準日とし、翌月以降も毎月同日に自動的に決済が行われます。</li>
-              </ol>
-            </div>
+        <h4>第6条（サービスの停止・免責）</h4>
+        <p>1. クレジットカードの決済エラー、残高不足等により月額費用の引き落としが確認できない場合、当方はオーナーに事前通知の上、ホームページの公開を一時停止することができるものとします。</p>
+        <p>2. ホームページ公開停止に伴い、オーナーまたは第三者に損害が生じた場合であっても、当方は一切の責任を負わないものとします。</p>
 
-            <div class="t-article">
-              <h3>第4条（限定エリア特化対応および修正運営）</h3>
-              <ol>
-                <li>オーナーからの修正依頼は、原則として当方の指定する「公式LINEアカウント」にて受け付けます。</li>
-                <li>当方は限定エリアに特化して運営している特性を活かし、依頼受領後、原則として即日〜翌営業日以内（24時間以内を目安）に迅速に修正を反映いたします（月1回まで）。ただし、内容によっては時間を要する場合があります。</li>
-              </ol>
-            </div>
-
-            <div class="t-article">
-              <h3>第5条（解約・契約終了）</h3>
-              <ol>
-                <li>オーナーは、本サービスをいつでも解約することができます。</li>
-                <li>解約を希望する場合、次回引き落とし日の<strong>【14日前】</strong>までに公式LINEアカウントにて解約の旨を通知するものとします。</li>
-                <li>期間途中の解約であっても、日割り計算による返金は一切行いません。</li>
-                <li>解約が成立した場合、当方は対象ホームページの公開を即座に停止（削除）いたします。</li>
-              </ol>
-            </div>
-
-            <div class="t-article">
-              <h3>第6条（サービスの停止・免責）</h3>
-              <ol>
-                <li>クレジットカードの決済エラー、残高不足等により月額費用の引き落としが確認できない場合、当方はオーナーに事前通知の上、ホームページの公開を一時停止することができるものとします。</li>
-                <li>ホームページ公開停止に伴い、オーナーまたは第三者に損害が生じた場合であっても、当方は一切の責任を負わないものとします。</li>
-              </ol>
-            </div>
-
-            <p class="t-updated">制定日：2026年7月10日</p>
-
-          </div>
-        </div>
+        <p style="margin-top:16px; color: var(--text-dark-soft);">制定日：2026年7月10日</p>
       </div>
+    </details>
+  </section>
+
+  <section>
+    <div class="final-cta">
+      <h2>まずは無料で、お気軽にご相談ください。</h2>
+      <a class="btn btn-primary" href="https://lin.ee/ozYzIKD">公式LINEで相談する</a>
     </div>
   </section>
 
-  <footer id="contact">
-    <div class="container">
-      <div class="foot-cta">
-        <p>まずは無料で、お気軽にご相談ください。</p>
-        <a href="https://lin.ee/ozYzIKD" target="_blank" class="btn btn-primary">公式LINEで相談する</a>
-      </div>
-      <div class="links">
-        <a href="#terms-section" id="terms-footer-link">利用規約はこちら</a>
-      </div>
-      <div class="copyright">© 2026 Web Production Local Works All Rights Reserved.</div>
+  <section style="padding-top: 32px; padding-bottom: 32px;">
+    <div class="message-compact">
+      <div class="message-compact-title">― 代表メッセージ ―</div>
+      <p>大阪と地元・大分で、美味しいのに知られずに消えていったお店を見てきました。その悔しさが、Local Worksを始めた理由です。</p>
+      <div class="message-compact-name">Local Works 代表　久野 佑真</div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    (function(){
-      var footerLink = document.getElementById('terms-footer-link');
-      var toggle = document.getElementById('terms-toggle');
-      var panel = document.getElementById('terms-panel');
+</div>
 
-      function openPanel(){
-        panel.classList.add('open');
-        toggle.setAttribute('aria-expanded', 'true');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      }
-      function closePanel(){
-        panel.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        panel.style.maxHeight = null;
-      }
+<footer>
+  <a href="#terms-section">利用規約はこちら</a>
+  <div style="margin-top:10px;">© 2026 Web Production Local Works All Rights Reserved.</div>
+</footer>
 
-      toggle.addEventListener('click', function(){
-        if (panel.classList.contains('open')) {
-          closePanel();
-        } else {
-          openPanel();
-        }
-      });
-
-      footerLink.addEventListener('click', function(e){
-        e.preventDefault();
-        openPanel();
-        document.getElementById('terms-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      window.addEventListener('resize', function(){
-        if (panel.classList.contains('open')) {
-          panel.style.maxHeight = panel.scrollHeight + 'px';
-        }
-      });
-    })();
-  </script>
-
-</body></html>
-
- 
+</body>
+</html>
