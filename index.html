@@ -34,12 +34,12 @@
     font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
     line-height: 1.85;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   h1, h2, h3 {
     font-family: "Zen Old Mincho", serif;
     margin: 0;
     color: var(--text);
-    word-break: keep-all;
     overflow-wrap: break-word;
   }
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
@@ -56,6 +56,12 @@
     align-items: center;
     gap: 10px;
     text-transform: uppercase;
+    max-width: 100%;
+  }
+  .label span {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .label::before {
     content: "";
@@ -299,7 +305,7 @@
   }
   .compare-pair {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 20px;
   }
   .compare-side .tag {
@@ -324,7 +330,7 @@
   /* ---- 3 reasons ---- */
   .reason {
     display: grid;
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 72px minmax(0, 1fr);
     gap: 20px;
     padding: 28px 0;
     border-bottom: 1px solid var(--line);
@@ -339,8 +345,8 @@
     -webkit-text-stroke: 1.4px var(--brass);
     line-height: 1;
   }
-  .reason h3 { font-size: 19px; margin-bottom: 10px; line-height: 1.6; }
-  .reason p { margin: 0; color: var(--text-soft); font-size: 14px; }
+  .reason h3 { font-size: 19px; margin-bottom: 10px; line-height: 1.6; overflow-wrap: break-word; }
+  .reason p { margin: 0; color: var(--text-soft); font-size: 14px; overflow-wrap: break-word; }
 
   /* ---- Price ---- */
   .price-card {
@@ -463,7 +469,7 @@
   @media (max-width: 560px) {
     .compare-pair { grid-template-columns: 1fr; gap: 14px; }
     .compare-item { padding: 22px 20px; }
-    .reason { grid-template-columns: 48px 1fr; }
+    .reason { grid-template-columns: 48px minmax(0, 1fr); }
     .reason-num { font-size: 30px; }
     .price-grid { gap: 28px; }
     .stat-row { padding: 16px 0; }
@@ -487,14 +493,14 @@
 <header>
   <div class="header-inner">
     <div class="logo">Local Works</div>
-    <a class="nav-cta" href="#contact">LINEで相談</a>
+    <a class="nav-cta" href="https://lin.ee/ozYzIKD">LINEで相談</a>
   </div>
 </header>
 
 <div class="wrap">
 
   <section class="hero">
-    <div class="label">限定エリア特化型・飲食店専門</div>
+    <div class="label"><span>限定エリア特化型・飲食店専門</span></div>
     <h1>街の美味しいを、<br>もっと近くに。</h1>
     <p class="sub">限定エリア特化型・飲食店専門のWeb制作サポート</p>
     <div class="hero-ctas">
@@ -511,7 +517,7 @@
 
   <section id="comparison">
     <div class="section-head">
-      <div class="label">COMPARISON</div>
+      <div class="label"><span>COMPARISON</span></div>
       <h2>大手制作会社との違い</h2>
       <p>「結局よくわからないまま契約して、高い料金だけ払い続けている」<br>そんなお悩みはありませんか？</p>
     </div>
@@ -573,7 +579,7 @@
 
   <section id="reasons">
     <div class="section-head">
-      <div class="label">3 REASONS</div>
+      <div class="label"><span>3 REASONS</span></div>
       <h2>選ばれる3つの理由</h2>
       <p>狭いエリアだからこそできる、丁寧で軽快なサポートがあります。</p>
     </div>
@@ -602,7 +608,7 @@
 
   <section id="pricing">
     <div class="section-head">
-      <div class="label">PRICE</div>
+      <div class="label"><span>PRICE</span></div>
       <h2>料金とサポート内容</h2>
       <p>迷わせない、明朗な料金です。</p>
     </div>
@@ -628,7 +634,7 @@
 
   <section id="terms-section">
     <div class="section-head">
-      <div class="label">TERMS</div>
+      <div class="label"><span>TERMS</span></div>
       <h2>利用規約</h2>
       <p>ご利用の前に、必ずご確認ください。</p>
     </div>
@@ -686,3 +692,6 @@
   <a href="#terms-section">利用規約はこちら</a>
   <div style="margin-top:10px;">© 2026 Web Production Local Works All Rights Reserved.</div>
 </footer>
+
+</body>
+</html>
